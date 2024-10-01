@@ -8,7 +8,8 @@ afterAll((done) => {
 
 describe('GET /api/hello', () => {
     it('should return a greeting message', async () => {
-        const res = await request(server).get('/api/hello');
+        const res = await request(server)
+                            .get('/api/hello');
         expect(res.statusCode).toEqual(200);
         expect(res.body.message).toBe('Response from Hello')
     });
@@ -19,7 +20,8 @@ describe('POST /api/greet', () => {
         const res = await request(server)
                             .post('/api/greet')
                             .send({name:'Vineeth'})
+
         expect(res.statusCode).toEqual(200);
-        expect(res.body.message).toBe('Hello, Vineeth');
+        expect(res.body.message).toBe(`Hello, Vineeth`);
     })
 })
